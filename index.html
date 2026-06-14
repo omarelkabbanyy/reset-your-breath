@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Your Breath | ابدأ من جديد</title>
+    <meta name="description" content="From a moment of pleasure to a lifetime disease. An educational health initiative about cardiopulmonary hazards of smoking — by Subgroup N1, Medicine Y1, Badya University.">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Reset Your Breath | ابدأ من جديد">
+    <meta property="og:description" content="From a moment of pleasure to a lifetime disease. Cardiopulmonary hazards of different types of smoking.">
+    <meta property="og:image" content="/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Reset Your Breath - Reclaim Your Life">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Reset Your Breath | ابدأ من جديد">
+    <meta name="twitter:description" content="From a moment of pleasure to a lifetime disease. Cardiopulmonary hazards of different types of smoking.">
+    <meta name="twitter:image" content="/og-image.png">
+    <meta name="twitter:image:alt" content="Reset Your Breath - Reclaim Your Life">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M10 8c-2 0-4 2-4 5v6c0 4 3 7 6 7s6-3 6-7v-6c0-3-2-5-4-5-1.5 0-2.5 1-3 2.5C13.5 9 12.5 8 10 8z' fill='%235bb89a'/%3E%3Cpath d='M22 8c2 0 4 2 4 5v6c0 4-3 7-6 7s-6-3-6-7v-6c0-3 2-5 4-5 1.5 0 2.5 1 3 2.5C18.5 9 19.5 8 22 8z' fill='%23e07a5f'/%3E%3C/svg%3E">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Ambient Background Canvas -->
+    <canvas id="ambient-canvas"></canvas>
+    
+    <!-- Mouse Glow Follower -->
+    <div id="mouse-glow"></div>
+
+    <!-- Floating Particles -->
+    <div id="particles-container"></div>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="main-header">
+        <div class="header-inner">
+            <a href="#" class="logo" id="logo">
+                <div class="logo-icon">
+                    <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                        <path d="M10 8c-2 0-4 2-4 5v6c0 4 3 7 6 7s6-3 6-7v-6c0-3-2-5-4-5-1.5 0-2.5 1-3 2.5C13.5 9 12.5 8 10 8z" fill="#5bb89a" opacity="0.9"/>
+                        <path d="M22 8c2 0 4 2 4 5v6c0 4-3 7-6 7s-6-3-6-7v-6c0-3 2-5 4-5 1.5 0 2.5 1 3 2.5C18.5 9 19.5 8 22 8z" fill="#e07a5f" opacity="0.95"/>
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-title">Reset Your Breath</span>
+                    <span class="logo-subtitle">ابدأ من جديد</span>
+                </div>
+            </a>
+            
+            <nav id="desktop-nav">
+                <a href="#home" class="nav-link active" data-section="home">Home</a>
+                <a href="#types" class="nav-link" data-section="types">Types</a>
+                <a href="#damage" class="nav-link" data-section="damage">Body Damage</a>
+                <a href="#statistics" class="nav-link" data-section="statistics">Statistics</a>
+                <a href="#timeline" class="nav-link" data-section="timeline">Recovery</a>
+                <a href="#treatment" class="nav-link" data-section="treatment">Treatment</a>
+            </nav>
+
+            <div class="header-actions">
+                <div class="lang-toggle" id="lang-toggle">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="ar">ع</button>
+                </div>
+                <a href="#pledge" class="cta-btn header-cta" id="header-cta">
+                    <span class="cta-text" data-en="I choose myself" data-ar="أختار نفسي">I choose myself</span>
+                    <span class="cta-glow"></span>
+                </a>
+                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+        <div class="mobile-nav-content">
+            <a href="#home" class="mobile-nav-link">Home</a>
+            <a href="#types" class="mobile-nav-link">Types</a>
+            <a href="#damage" class="mobile-nav-link">Body Damage</a>
+            <a href="#statistics" class="mobile-nav-link">Statistics</a>
+            <a href="#timeline" class="mobile-nav-link">Recovery</a>
+            <a href="#treatment" class="mobile-nav-link">Treatment</a>
+            <a href="#pledge" class="cta-btn mobile-cta">
+                <span data-en="Today, I choose myself" data-ar="اليوم، أختار نفسي">Today, I choose myself</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="home" class="hero-section">
+        <div class="hero-bg">
+            <div class="hero-gradient"></div>
+            <div class="hero-orb hero-orb-1"></div>
+            <div class="hero-orb hero-orb-2"></div>
+            <div class="hero-orb hero-orb-3"></div>
+        </div>
+        
+        <div class="hero-content" id="hero-content">
+            <div class="hero-badge reveal-up">
+                <span class="badge-dot"></span>
+                <span data-en="Subgroup N1 · Medicine Y1 · Badya University" data-ar="المجموعة الفرعية N1 · طب السنة الأولى · جامعة بدية">Subgroup N1 · Medicine Y1 · Badya University</span>
+            </div>
+            
+            <h1 class="hero-title reveal-up delay-1">
+                <span class="hero-small-text" data-en="From a moment of pleasure to" data-ar="من لحظة متعة إلى">From a moment of pleasure to</span>
+                <br>
+                <span data-en="a Lifetime " data-ar="مرض ">a Lifetime </span><em data-en="Disease" data-ar="مدى الحياة">Disease</em><span class="period">.</span>
+            </h1>
+            
+            <p class="hero-subtitle reveal-up delay-15" data-en="Cardiopulmonary Hazards of Different Types of Smoking" data-ar="مخاطر القلب والرئة لأنواع التدخين المختلفة">Cardiopulmonary Hazards of Different Types of Smoking</p>
+            
+            <p class="hero-desc reveal-up delay-2" data-en="Smoking is a major global public health problem associated with high morbidity and mortality. All forms of smoking can cause nicotine addiction and serious diseases affecting the heart and lungs." data-ar="التدخين مشكلة صحية عامة عالمية كبرى مرتبطة بارتفاع معدلات الإصابة بالأمراض والوفيات. جميع أشكال التدخين يمكن أن تسبب إدمان النيكوتين وأمراضاً خطيرة تؤثر على القلب والرئتين.">
+                Smoking is a major global public health problem associated with high morbidity and mortality. All forms of smoking can cause nicotine addiction and serious diseases affecting the heart and lungs.
+            </p>
+
+            <div class="hero-actions reveal-up delay-3">
+                <a href="#pledge" class="cta-btn primary-cta">
+                    <span data-en="Today, I choose myself" data-ar="اليوم، أختار نفسي">Today, I choose myself</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    <span class="cta-glow"></span>
+                </a>
+                <a href="#types" class="outline-btn">
+                    <span data-en="Explore the science" data-ar="استكشف العلم">Explore the science</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Hero Stats -->
+        <div class="hero-stats reveal-up delay-4" id="hero-stats">
+            <div class="stat-card" data-value="7">
+                <div class="stat-number"><span class="count" data-target="7">0</span><span data-en="M" data-ar="م">M</span></div>
+                <p data-en="tobacco-related deaths annually" data-ar="وفاة مرتبطة بالتبغ سنوياً">tobacco-related deaths annually</p>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-card" data-value="82">
+                <div class="stat-number"><span class="count" data-target="82">0</span>.6%</div>
+                <p data-en="of smokers start between ages 14–25" data-ar="من المدخنين يبدؤون بين 14-25 سنة">of smokers start between ages 14–25</p>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-card" data-value="50">
+                <div class="stat-number"><span data-en="Up to " data-ar="حتى ">Up to </span><span class="count" data-target="50">0</span>%</div>
+                <p data-en="of long-term smokers die from smoking-related diseases" data-ar="من المدخنين على المدى الطويل يموتون من أمراض مرتبطة بالتدخين">of long-term smokers die from smoking-related diseases</p>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator reveal-up delay-5">
+            <div class="scroll-mouse">
+                <div class="scroll-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TYPES OF SMOKING ==================== -->
+    <section id="types" class="section types-section">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-tag reveal-up" data-en="Types of Smoking" data-ar="أنواع التدخين">Types of Smoking</span>
+                <h2 class="section-title reveal-up delay-1" data-en="Know your enemy" data-ar="اعرف عدوك">Know your enemy</h2>
+                <p class="section-desc reveal-up delay-2" data-en="Tobacco products include cigarettes, e-cigarettes, heated tobacco, hookah, and smokeless tobacco. Each carries its own dangers." data-ar="تشمل منتجات التبغ السجائر والسجائر الإلكترونية والتبغ المسخن والشيشة والتبغ بدون دخان. كل منها يحمل مخاطره الخاصة.">Tobacco products include cigarettes, e-cigarettes, heated tobacco, hookah, and smokeless tobacco. Each carries its own dangers.</p>
+            </div>
+
+            <div class="types-grid">
+                <div class="type-card glass-card reveal-up" data-tilt>
+                    <div class="type-emoji">🚬</div>
+                    <h3 data-en="Cigarettes" data-ar="السجائر">Cigarettes</h3>
+                    <ul>
+                        <li data-en="Tobacco burned directly" data-ar="تبغ يُحرق مباشرة">Tobacco burned directly</li>
+                        <li data-en="Highest toxic exposure" data-ar="أعلى تعرض للسموم">Highest toxic exposure</li>
+                        <li data-en="Causes lung cancer & COPD" data-ar="يسبب سرطان الرئة وداء الانسداد الرئوي المزمن">Causes lung cancer & COPD</li>
+                    </ul>
+                    <div class="type-danger danger-extreme">
+                        <span data-en="EXTREME RISK" data-ar="خطر شديد">EXTREME RISK</span>
+                    </div>
+                </div>
+
+                <div class="type-card glass-card reveal-up delay-1" data-tilt>
+                    <div class="type-emoji">💨</div>
+                    <h3 data-en="Vape (E-Cigarettes)" data-ar="الفيب (السجائر الإلكترونية)">Vape (E-Cigarettes)</h3>
+                    <ul>
+                        <li data-en="Heated e-liquid aerosol" data-ar="رذاذ سائل إلكتروني مسخن">Heated e-liquid aerosol</li>
+                        <li data-en="Nicotine addiction" data-ar="إدمان النيكوتين">Nicotine addiction</li>
+                        <li data-en="Respiratory & cardiovascular effects" data-ar="تأثيرات تنفسية وقلبية">Respiratory & cardiovascular effects</li>
+                    </ul>
+                    <div class="type-danger danger-high">
+                        <span data-en="HIGH RISK" data-ar="خطر عالي">HIGH RISK</span>
+                    </div>
+                </div>
+
+                <div class="type-card glass-card reveal-up delay-2" data-tilt>
+                    <div class="type-emoji">🫧</div>
+                    <h3 data-en="Hookah (Shisha)" data-ar="الشيشة">Hookah (Shisha)</h3>
+                    <ul>
+                        <li data-en="Flavored tobacco, long sessions" data-ar="تبغ بنكهات، جلسات طويلة">Flavored tobacco, long sessions</li>
+                        <li data-en="High smoke exposure" data-ar="تعرض عالي للدخان">High smoke exposure</li>
+                        <li data-en="Increased cancer risk" data-ar="زيادة خطر السرطان">Increased cancer risk</li>
+                    </ul>
+                    <div class="type-danger danger-high">
+                        <span data-en="HIGH RISK" data-ar="خطر عالي">HIGH RISK</span>
+                    </div>
+                </div>
+
+                <div class="type-card glass-card reveal-up delay-3" data-tilt>
+                    <div class="type-emoji">🔥</div>
+                    <h3 data-en="IQOS (Heated Tobacco)" data-ar="آيكوس (تبغ مسخن)">IQOS (Heated Tobacco)</h3>
+                    <ul>
+                        <li data-en="Tobacco heated, not burned" data-ar="تبغ مسخن وليس محروق">Tobacco heated, not burned</li>
+                        <li data-en="Lower emissions than cigarettes" data-ar="انبعاثات أقل من السجائر">Lower emissions than cigarettes</li>
+                        <li data-en="Still increases COPD & heart disease risk" data-ar="لا يزال يزيد خطر الأمراض الرئوية والقلبية">Still increases COPD & heart disease risk</li>
+                    </ul>
+                    <div class="type-danger danger-moderate">
+                        <span data-en="MODERATE RISK" data-ar="خطر متوسط">MODERATE RISK</span>
+                    </div>
+                </div>
+
+                <div class="type-card glass-card type-card-wide reveal-up delay-4" data-tilt>
+                    <div class="type-emoji">🌫️</div>
+                    <h3 data-en="Passive Smoking" data-ar="التدخين السلبي">Passive Smoking</h3>
+                    <ul>
+                        <li data-en="Secondhand smoke exposure" data-ar="التعرض للدخان السلبي">Secondhand smoke exposure</li>
+                        <li data-en="Harmful even to non-smokers" data-ar="ضار حتى لغير المدخنين">Harmful even to non-smokers</li>
+                        <li data-en="Both active and passive smoking negatively affect health" data-ar="التدخين النشط والسلبي يؤثران سلباً على الصحة">Both active and passive smoking negatively affect health</li>
+                    </ul>
+                    <div class="type-danger danger-high">
+                        <span data-en="INVOLUNTARY RISK" data-ar="خطر غير طوعي">INVOLUNTARY RISK</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== WHY PEOPLE SMOKE ==================== -->
+    <section id="psychology" class="section psychology-section">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-tag reveal-up" data-en="Psychology" data-ar="علم النفس">Psychology</span>
+                <h2 class="section-title reveal-up delay-1" data-en="Why do people smoke?" data-ar="لماذا يدخن الناس؟">Why do people smoke?</h2>
+                <p class="section-desc reveal-up delay-2" data-en="Understanding the psychological causes is the first step to breaking free." data-ar="فهم الأسباب النفسية هو الخطوة الأولى للتحرر.">Understanding the psychological causes is the first step to breaking free.</p>
+            </div>
+
+            <div class="psychology-grid">
+                <div class="psych-card glass-card reveal-up" data-tilt>
+                    <img src="images/stress-relief.jpeg" alt="Stress Relief" class="psych-img" loading="lazy">
+                    <h3 data-en="Stress Relief" data-ar="تخفيف التوتر">Stress Relief</h3>
+                    <p data-en="Used to reduce stress and anxiety, creating a false sense of calm." data-ar="يُستخدم لتقليل التوتر والقلق، مما يخلق إحساساً زائفاً بالهدوء.">Used to reduce stress and anxiety, creating a false sense of calm.</p>
+                </div>
+
+                <div class="psych-card glass-card reveal-up delay-1" data-tilt>
+                    <img src="images/peer-pressure.jpeg" alt="Social Influence & Peer Pressure" class="psych-img" loading="lazy">
+                    <h3 data-en="Social Influence" data-ar="التأثير الاجتماعي">Social Influence</h3>
+                    <p data-en="Peer pressure and influence from friends and social groups." data-ar="ضغط الأقران والتأثير من الأصدقاء والمجموعات الاجتماعية.">Peer pressure and influence from friends and social groups.</p>
+                </div>
+
+                <div class="psych-card glass-card reveal-up delay-2" data-tilt>
+                    <img src="images/habit-addiction.jpeg" alt="Habit & Addiction" class="psych-img" loading="lazy">
+                    <h3 data-en="Habit & Addiction" data-ar="العادة والإدمان">Habit & Addiction</h3>
+                    <p data-en="Nicotine creates dependence and cravings. Becomes part of daily routines." data-ar="النيكوتين يخلق الاعتماد والرغبة الشديدة. يصبح جزءاً من الروتين اليومي.">Nicotine creates dependence and cravings. Becomes part of daily routines.</p>
+                </div>
+
+                <div class="psych-card glass-card reveal-up delay-3" data-tilt>
+                    <img src="images/emotional-coping.jpeg" alt="Emotional Coping" class="psych-img" loading="lazy">
+                    <h3 data-en="Emotional Coping" data-ar="التعامل العاطفي">Emotional Coping</h3>
+                    <p data-en="Used to deal with sadness, anger, or boredom. A temporary escape." data-ar="يُستخدم للتعامل مع الحزن أو الغضب أو الملل. هروب مؤقت.">Used to deal with sadness, anger, or boredom. A temporary escape.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== HOW SMOKING DAMAGES THE BODY ==================== -->
+    <section id="damage" class="section damage-section">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-tag reveal-up" data-en="Body Damage" data-ar="الضرر الجسدي">Body Damage</span>
+                <h2 class="section-title reveal-up delay-1" data-en="How smoking destroys your body" data-ar="كيف يدمر التدخين جسمك">How smoking destroys your body</h2>
+                <p class="section-desc reveal-up delay-2" data-en="7,000 harmful chemicals in tobacco smoke attack every organ system." data-ar="7,000 مادة كيميائية ضارة في دخان التبغ تهاجم كل أجهزة الجسم.">7,000 harmful chemicals in tobacco smoke attack every organ system.</p>
+            </div>
+
+            <!-- Damage Mechanism Cards -->
+            <div class="damage-grid">
+                <div class="damage-card glass-card reveal-up" data-tilt>
+                    <div class="damage-icon">☠️</div>
+                    <h3 data-en="Toxic Chemicals" data-ar="مواد كيميائية سامة">Toxic Chemicals</h3>
+                    <ul>
+                        <li data-en="CO → reduced oxygen delivery (hypoxia)" data-ar="أول أكسيد الكربون ← نقص توصيل الأكسجين">CO → reduced oxygen delivery (hypoxia)</li>
+                        <li data-en="Tar → airway damage" data-ar="القطران ← تلف المجاري الهوائية">Tar → airway damage</li>
+                        <li data-en="Nicotine → addiction, ↑ heart rate & blood pressure" data-ar="النيكوتين ← إدمان، ↑ معدل ضربات القلب وضغط الدم">Nicotine → addiction, ↑ heart rate & blood pressure</li>
+                    </ul>
+                </div>
+
+                <div class="damage-card glass-card reveal-up delay-1" data-tilt>
+                    <div class="damage-icon">🔬</div>
+                    <h3 data-en="Oxidative Stress" data-ar="الإجهاد التأكسدي">Oxidative Stress</h3>
+                    <ul>
+                        <li data-en="Free radicals damage DNA and cells" data-ar="الجذور الحرة تتلف الحمض النووي والخلايا">Free radicals damage DNA and cells</li>
+                        <li data-en="Chronic inflammation injures lung tissue" data-ar="الالتهاب المزمن يؤذي أنسجة الرئة">Chronic inflammation injures lung tissue</li>
+                        <li data-en="Impaired repair mechanisms" data-ar="آليات إصلاح معطلة">Impaired repair mechanisms</li>
+                    </ul>
+                </div>
+
+                <div class="damage-card glass-card reveal-up delay-2" data-tilt>
+                    <div class="damage-icon">🫁</div>
+                    <h3 data-en="Respiratory Damage" data-ar="الضرر التنفسي">Respiratory Damage</h3>
+                    <ul>
+                        <li data-en="Destruction of cilia" data-ar="تدمير الأهداب">Destruction of cilia</li>
+                        <li data-en="Mucus accumulation & infections" data-ar="تراكم المخاط والالتهابات">Mucus accumulation & infections</li>
+                        <li data-en="COPD: chronic bronchitis & emphysema" data-ar="مرض رئوي مزمن: التهاب الشعب والنفاخ">COPD: chronic bronchitis & emphysema</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Organ Harm Section -->
+            <div class="organ-section">
+                <h3 class="organ-title reveal-up" data-en="Organ Harm & Clinical Outcomes" data-ar="أضرار الأعضاء والنتائج السريرية">Organ Harm & Clinical Outcomes</h3>
+                
+                <div class="organ-grid">
+                    <div class="organ-card glass-card reveal-left">
+                        <div class="organ-icon">❤️</div>
+                        <h4 data-en="Cardiovascular" data-ar="القلب والأوعية الدموية">Cardiovascular</h4>
+                        <ul>
+                            <li data-en="Endothelial dysfunction" data-ar="اختلال بطانة الأوعية">Endothelial dysfunction</li>
+                            <li data-en="Accelerated atherosclerosis" data-ar="تصلب الشرايين المتسارع">Accelerated atherosclerosis</li>
+                            <li data-en="Coronary artery disease (CAD)" data-ar="مرض الشريان التاجي">Coronary artery disease (CAD)</li>
+                            <li data-en="Myocardial infarction (heart attack)" data-ar="احتشاء عضلة القلب (نوبة قلبية)">Myocardial infarction (heart attack)</li>
+                            <li data-en="Peripheral arterial disease" data-ar="مرض الشرايين الطرفية">Peripheral arterial disease</li>
+                        </ul>
+                    </div>
+
+                    <div class="organ-card glass-card reveal-right">
+                        <div class="organ-icon">🫁</div>
+                        <h4 data-en="Pulmonary" data-ar="الرئوي">Pulmonary</h4>
+                        <ul>
+                            <li data-en="COPD (chronic bronchitis & emphysema)" data-ar="مرض الانسداد الرئوي المزمن">COPD (chronic bronchitis & emphysema)</li>
+                            <li data-en="Lung cancer" data-ar="سرطان الرئة">Lung cancer</li>
+                            <li data-en="Recurrent respiratory infections" data-ar="التهابات تنفسية متكررة">Recurrent respiratory infections</li>
+                            <li data-en="Progressive decline in lung function" data-ar="تراجع تدريجي في وظائف الرئة">Progressive decline in lung function</li>
+                            <li data-en="Popcorn Lung (vaping)" data-ar="رئة الفشار (الفيب)">Popcorn Lung (vaping)</li>
+                        </ul>
+                    </div>
+
+                    <div class="organ-card glass-card reveal-left">
+                        <div class="organ-icon">🧬</div>
+                        <h4 data-en="Carcinogenesis" data-ar="التسرطن">Carcinogenesis</h4>
+                        <ul>
+                            <li data-en="DNA mutations caused by carcinogens" data-ar="طفرات الحمض النووي بسبب المواد المسرطنة">DNA mutations caused by carcinogens</li>
+                            <li data-en="Impaired apoptosis and cell repair" data-ar="ضعف الموت المبرمج للخلايا وإصلاحها">Impaired apoptosis and cell repair</li>
+                            <li data-en="Multi-organ damage" data-ar="تلف متعدد الأعضاء">Multi-organ damage</li>
+                        </ul>
+                    </div>
+
+                    <div class="organ-card glass-card reveal-right">
+                        <div class="organ-icon">⚡</div>
+                        <h4 data-en="Systemic Effects" data-ar="التأثيرات الجهازية">Systemic Effects</h4>
+                        <ul>
+                            <li data-en="Chronic tissue hypoxia" data-ar="نقص الأكسجين المزمن في الأنسجة">Chronic tissue hypoxia</li>
+                            <li data-en="Immune suppression" data-ar="تثبيط المناعة">Immune suppression</li>
+                            <li data-en="Delayed wound healing" data-ar="تأخر التئام الجروح">Delayed wound healing</li>
+                            <li data-en="Reduced quality of life" data-ar="انخفاض جودة الحياة">Reduced quality of life</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== STATISTICS ==================== -->
+    <section id="statistics" class="section stats-section">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-tag reveal-up" data-en="Statistics & Evidence" data-ar="الإحصائيات والأدلة">Statistics & Evidence</span>
+                <h2 class="section-title reveal-up delay-1" data-en="The numbers don't lie" data-ar="الأرقام لا تكذب">The numbers don't lie</h2>
+            </div>
+
+            <div class="big-stats-grid" id="big-stats">
+                <div class="big-stat reveal-up">
+                    <div class="big-stat-number"><span class="count" data-target="7">0</span><span class="big-stat-unit" data-en=" million" data-ar=" مليون"> million</span></div>
+                    <p data-en="tobacco-related deaths every year, including deaths from passive smoking" data-ar="وفاة مرتبطة بالتبغ كل عام، بما في ذلك الوفيات من التدخين السلبي">tobacco-related deaths every year, including deaths from passive smoking</p>
+                </div>
+
+                <div class="big-stat reveal-up delay-1">
+                    <div class="big-stat-number"><span class="count" data-target="82">0</span>.6%</div>
+                    <p data-en="of smokers start between ages 14–25. Youth smoking is rising." data-ar="من المدخنين يبدأون بين 14-25 سنة. تدخين الشباب في ارتفاع.">of smokers start between ages 14–25. Youth smoking is rising.</p>
+                </div>
+
+                <div class="big-stat reveal-up delay-2">
+                    <div class="big-stat-number"><span class="count" data-target="18">0</span>.5%</div>
+                    <p data-en="begin smoking before age 15 — the younger you start, the harder it is to quit" data-ar="يبدأون التدخين قبل سن 15 — كلما بدأت أصغر، كان الإقلاع أصعب">begin smoking before age 15 — the younger you start, the harder it is to quit</p>
+                </div>
+
+                <div class="big-stat reveal-up delay-3">
+                    <div class="big-stat-number"><span class="count" data-target="10">0</span><span class="big-stat-unit" data-en=" years" data-ar=" سنوات"> years</span></div>
+                    <p data-en="of life expectancy lost — smokers lose approximately 10 years compared to non-smokers" data-ar="من العمر المتوقع تُفقد — يخسر المدخنون حوالي 10 سنوات مقارنة بغير المدخنين">of life expectancy lost — smokers lose approximately 10 years compared to non-smokers</p>
+                </div>
+            </div>
+
+            <div class="insight-banner glass-card-dark reveal-up">
+                <div class="insight-icon">⚠️</div>
+                <div class="insight-text">
+                    <p class="insight-main" data-en="Egypt is among the countries with increasing numbers of young smokers. Progress remains uneven globally." data-ar="مصر من بين الدول التي تشهد أعداداً متزايدة من الشباب المدخنين. التقدم لا يزال متفاوتاً عالمياً.">Egypt is among the countries with increasing numbers of young smokers. Progress remains uneven globally.</p>
+                    <p class="insight-sub" data-en="Smoking is the leading preventable cause of disease and death worldwide." data-ar="التدخين هو السبب الرئيسي القابل للوقاية للأمراض والوفاة في جميع أنحاء العالم.">Smoking is the leading preventable cause of disease and death worldwide.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== RECOVERY TIMELINE ==================== -->
+    <section id="timeline" class="section timeline-section">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-tag reveal-up" data-en="Recovery Timeline" data-ar="الجدول الزمني للتعافي">Recovery Timeline</span>
+                <h2 class="section-title reveal-up delay-1" data-en="Your body starts healing immediately" data-ar="جسمك يبدأ بالشفاء فوراً">Your body starts healing immediately</h2>
+                <p class="section-desc reveal-up delay-2" data-en="From the first 20 minutes to 15 years — here's the remarkable timeline of recovery after you quit." data-ar="من أول 20 دقيقة إلى 15 سنة — إليك الجدول الزمني الرائع للتعافي بعد الإقلاع.">From the first 20 minutes to 15 years — here's the remarkable timeline of recovery after you quit.</p>
+            </div>
+
+            <div class="recovery-timeline" id="recovery-timeline">
+                <div class="timeline-line"><div class="timeline-progress"></div></div>
+                
+                <div class="timeline-item reveal-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-card">
+                        <div class="timeline-phase" data-en="Immediate" data-ar="فوري">Immediate</div>
+                        <h3 data-en="20 Minutes" data-ar="20 دقيقة">20 Minutes</h3>
+                        <p data-en="Heart rate and blood pressure begin to normalize." data-ar="يبدأ معدل ضربات القلب وضغط الدم في العودة للطبيعي.">Heart rate and blood pressure begin to normalize.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-card">
+                        <div class="timeline-phase" data-en="Immediate" data-ar="فوري">Immediate</div>
+                        <h3 data-en="12 Hours" data-ar="12 ساعة">12 Hours</h3>
+                        <p data-en="Carbon monoxide is cleared. Oxygen levels return to normal." data-ar="يُزال أول أكسيد الكربون. تعود مستويات الأكسجين للطبيعي.">Carbon monoxide is cleared. Oxygen levels return to normal.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-card">
+                        <div class="timeline-phase short-term" data-en="Short-term" data-ar="قصير المدى">Short-term</div>
+                        <h3 data-en="2 Days" data-ar="يومان">2 Days</h3>
+                        <p data-en="Sense of smell and taste begin to improve." data-ar="حاسة الشم والتذوق تبدأ في التحسن.">Sense of smell and taste begin to improve.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-card">
+                        <div class="timeline-phase short-term" data-en="Short-term" data-ar="قصير المدى">Short-term</div>
+                        <h3 data-en="2 Weeks" data-ar="أسبوعان">2 Weeks</h3>
+                        <p data-en="Circulation improves. Endothelial function begins recovering. Walking becomes easier." data-ar="الدورة الدموية تتحسن. وظائف بطانة الأوعية تبدأ بالتعافي. المشي يصبح أسهل.">Circulation improves. Endothelial function begins recovering. Walking becomes easier.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-card">
+                        <div class="timeline-phase medium-term" data-en="Medium-term" data-ar="متوسط المدى">Medium-term</div>
+                        <h3 data-en="1–9 Months" data-ar="1-9 أشهر">1–9 Months</h3>
+                        <p data-en="Lung function improves ~10%. Cilia recover. Cough and shortness of breath decrease. Fewer respiratory infections." data-ar="وظائف الرئة تتحسن ~10%. الأهداب تتعافى. السعال وضيق التنفس يتراجعان. التهابات تنفسية أقل.">Lung function improves ~10%. Cilia recover. Cough and shortness of breath decrease. Fewer respiratory infections.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-card">
+                        <div class="timeline-phase long-term" data-en="Long-term" data-ar="طويل المدى">Long-term</div>
+                        <h3 data-en="1 Year" data-ar="سنة واحدة">1 Year</h3>
+                        <p data-en="Coronary heart disease risk drops by 50%. A major milestone!" data-ar="ينخفض خطر أمراض القلب التاجية بنسبة 50%. إنجاز كبير!">Coronary heart disease risk drops by 50%. A major milestone!</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-card">
+                        <div class="timeline-phase long-term" data-en="Long-term" data-ar="طويل المدى">Long-term</div>
+                        <h3 data-en="5 Years" data-ar="5 سنوات">5 Years</h3>
+                        <p data-en="Risk of stroke and several cancers decreases significantly." data-ar="ينخفض خطر السكتة الدماغية والعديد من السرطانات بشكل كبير.">Risk of stroke and several cancers decreases significantly.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-card">
+                        <div class="timeline-phase long-term" data-en="Long-term" data-ar="طويل المدى">Long-term</div>
+                        <h3 data-en="10 Years" data-ar="10 سنوات">10 Years</h3>
+                        <p data-en="Lung cancer risk drops by ~50%. Other cancer risks decrease too." data-ar="ينخفض خطر سرطان الرئة بنحو 50%. مخاطر السرطانات الأخرى تتراجع أيضاً.">Lung cancer risk drops by ~50%. Other cancer risks decrease too.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-card timeline-card-final">
+                        <div class="timeline-phase long-term" data-en="Long-term" data-ar="طويل المدى">Long-term</div>
+                        <h3 data-en="15 Years" data-ar="15 سنة">15 Years</h3>
+                        <p data-en="Coronary artery disease risk approaches that of a non-smoker. You made it." data-ar="خطر أمراض الشريان التاجي يقترب من غير المدخنين. لقد نجحت.">Coronary artery disease risk approaches that of a non-smoker. You made it.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reversibility Note -->
+            <div class="reversibility-note glass-card reveal-up">
+                <div class="rev-row">
+                    <div class="rev-card rev-good">
+                        <h4 data-en="✅ Reversible Damage" data-ar="✅ أضرار قابلة للعكس">✅ Reversible Damage</h4>
+                        <ul>
+                            <li data-en="Cardiovascular function improves" data-ar="وظائف القلب والأوعية تتحسن">Cardiovascular function improves</li>
+                            <li data-en="Blood oxygen normalizes" data-ar="أكسجين الدم يعود للطبيعي">Blood oxygen normalizes</li>
+                            <li data-en="Ciliary activity recovers" data-ar="نشاط الأهداب يتعافى">Ciliary activity recovers</li>
+                        </ul>
+                    </div>
+                    <div class="rev-card rev-bad">
+                        <h4 data-en="⚠️ Irreversible Damage" data-ar="⚠️ أضرار لا تُعكس">⚠️ Irreversible Damage</h4>
+                        <ul>
+                            <li data-en="Emphysema (permanent alveolar destruction)" data-ar="النفاخ (تدمير الحويصلات الدائم)">Emphysema (permanent alveolar destruction)</li>
+                            <li data-en="Airway fibrosis & scarring" data-ar="تليف المجاري الهوائية والندوب">Airway fibrosis & scarring</li>
+                            <li data-en="Some DNA mutations & epigenetic changes persist" data-ar="بعض الطفرات الجينية والتغيرات فوق الجينية تستمر">Some DNA mutations & epigenetic changes persist</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TREATMENT ==================== -->
+    <section id="treatment" class="section treatment-section">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-tag reveal-up" data-en="Treatment" data-ar="العلاج">Treatment</span>
+                <h2 class="section-title reveal-up delay-1" data-en="There is a way out" data-ar="هناك طريق للخروج">There is a way out</h2>
+                <p class="section-desc reveal-up delay-2" data-en="Smoking cessation is most successful when behavioral support is combined with evidence-based medications." data-ar="الإقلاع عن التدخين يكون أكثر نجاحاً عند دمج الدعم السلوكي مع الأدوية القائمة على الأدلة.">Smoking cessation is most successful when behavioral support is combined with evidence-based medications.</p>
+            </div>
+
+            <div class="treatment-grid">
+                <div class="treatment-card glass-card reveal-up" data-tilt>
+                    <div class="treatment-num">01</div>
+                    <h3 data-en="Medical Treatment" data-ar="العلاج الطبي">Medical Treatment</h3>
+                    <div class="treatment-sub">
+                        <h4 data-en="Nicotine Replacement (NRT)" data-ar="بدائل النيكوتين">Nicotine Replacement (NRT)</h4>
+                        <p data-en="Patches, gum, lozenges, nasal spray, and inhalers" data-ar="اللاصقات والعلكة والأقراص وبخاخ الأنف والبخاخات">Patches, gum, lozenges, nasal spray, and inhalers</p>
+                    </div>
+                    <div class="treatment-sub">
+                        <h4 data-en="Non-Nicotine Medications" data-ar="أدوية غير نيكوتينية">Non-Nicotine Medications</h4>
+                        <p data-en="Varenicline (Chantix) and Bupropion (Zyban)" data-ar="فارينيكلين (شانتكس) وبوبروبيون (زيبان)">Varenicline (Chantix) and Bupropion (Zyban)</p>
+                    </div>
+                </div>
+
+                <div class="treatment-card glass-card reveal-up delay-1" data-tilt>
+                    <div class="treatment-num">02</div>
+                    <h3 data-en="Behavioral Support" data-ar="الدعم السلوكي">Behavioral Support</h3>
+                    <ul>
+                        <li data-en="Individual or group counseling" data-ar="استشارات فردية أو جماعية">Individual or group counseling</li>
+                        <li data-en="Cognitive Behavioral Therapy (CBT)" data-ar="العلاج السلوكي المعرفي">Cognitive Behavioral Therapy (CBT)</li>
+                        <li data-en="Quitlines and mobile apps" data-ar="خطوط المساعدة وتطبيقات الهاتف">Quitlines and mobile apps</li>
+                        <li data-en="Family and social support" data-ar="الدعم العائلي والاجتماعي">Family and social support</li>
+                    </ul>
+                </div>
+
+                <div class="treatment-card glass-card reveal-up delay-2" data-tilt>
+                    <div class="treatment-num">03</div>
+                    <h3 data-en="Lifestyle Strategies" data-ar="استراتيجيات نمط الحياة">Lifestyle Strategies</h3>
+                    <ul>
+                        <li data-en="Avoid smoking triggers" data-ar="تجنب محفزات التدخين">Avoid smoking triggers</li>
+                        <li data-en="Use healthy substitutes (gum, water, snacks)" data-ar="استخدم بدائل صحية (علكة، ماء، وجبات خفيفة)">Use healthy substitutes (gum, water, snacks)</li>
+                        <li data-en="Regular exercise" data-ar="ممارسة الرياضة بانتظام">Regular exercise</li>
+                        <li data-en="Stress management techniques" data-ar="تقنيات إدارة التوتر">Stress management techniques</li>
+                    </ul>
+                </div>
+
+                <div class="treatment-card glass-card reveal-up delay-3" data-tilt>
+                    <div class="treatment-num">04</div>
+                    <h3 data-en="Relapse Management" data-ar="إدارة الانتكاس">Relapse Management</h3>
+                    <ul>
+                        <li data-en="Withdrawal symptoms peak within 3–7 days" data-ar="أعراض الانسحاب تبلغ ذروتها خلال 3-7 أيام">Withdrawal symptoms peak within 3–7 days</li>
+                        <li data-en="Cravings gradually decrease over time" data-ar="الرغبة الشديدة تتناقص تدريجياً">Cravings gradually decrease over time</li>
+                        <li data-en="Relapse is common — don't give up" data-ar="الانتكاس شائع — لا تستسلم">Relapse is common — don't give up</li>
+                        <li data-en="Repeated quit attempts improve success" data-ar="محاولات الإقلاع المتكررة تحسن النجاح">Repeated quit attempts improve success</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- MOHP Section -->
+            <div class="mohp-banner glass-card reveal-up">
+                <img src="images/mohp-logo.jpeg" alt="Ministry of Health & Population" class="mohp-logo" loading="lazy">
+                <div class="mohp-content">
+                    <h3 data-en="Egyptian Ministry of Health & Population" data-ar="وزارة الصحة والسكان المصرية">Egyptian Ministry of Health & Population</h3>
+                    <div class="mohp-grid">
+                        <div>
+                            <h4 data-en="Laws & Regulation" data-ar="القوانين والتنظيمات">Laws & Regulation</h4>
+                            <p data-en="Ban on smoking in public places, tobacco advertising & promotion." data-ar="حظر التدخين في الأماكن العامة وإعلانات التبغ والترويج.">Ban on smoking in public places, tobacco advertising & promotion.</p>
+                        </div>
+                        <div>
+                            <h4 data-en="Public Health Support" data-ar="دعم الصحة العامة">Public Health Support</h4>
+                            <p data-en="Smoking cessation clinics nationwide. National Quitline: ☎ 16805" data-ar="عيادات الإقلاع عن التدخين على مستوى الجمهورية. الخط الساخن: ☎ 16805">Smoking cessation clinics nationwide. National Quitline: ☎ 16805</p>
+                        </div>
+                        <div>
+                            <h4 data-en="Packaging & Awareness" data-ar="التعبئة والتوعية">Packaging & Awareness</h4>
+                            <p data-en="Graphic warnings on 50% of packs. Ban on misleading terms." data-ar="تحذيرات مصورة على 50% من العبوات. حظر المصطلحات المضللة.">Graphic warnings on 50% of packs. Ban on misleading terms.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA / PLEDGE SECTION ==================== -->
+    <section id="pledge" class="section pledge-section">
+        <div class="pledge-bg">
+            <div class="pledge-orb pledge-orb-1"></div>
+            <div class="pledge-orb pledge-orb-2"></div>
+        </div>
+        <div class="section-inner pledge-inner">
+            <div class="pledge-quote-card glass-card-dark reveal-up">
+                <div class="motivation-orb"></div>
+                <div class="motivation-inner">
+                    <div class="motivation-icon">
+                        <svg width="48" height="48" viewBox="0 0 32 32" fill="none">
+                            <path d="M10 8c-2 0-4 2-4 5v6c0 4 3 7 6 7s6-3 6-7v-6c0-3-2-5-4-5-1.5 0-2.5 1-3 2.5C13.5 9 12.5 8 10 8z" fill="#5bb89a"/>
+                            <path d="M22 8c2 0 4 2 4 5v6c0 4-3 7-6 7s-6-3-6-7v-6c0-3 2-5 4-5 1.5 0 2.5 1 3 2.5C18.5 9 19.5 8 22 8z" fill="#e07a5f"/>
+                        </svg>
+                    </div>
+                    <blockquote>
+                        <p class="quote-text" data-en="What starts as a choice can become an addiction, and what begins as a habit can end as a disease." data-ar="ما يبدأ كخيار يمكن أن يصبح إدماناً، وما يبدأ كعادة يمكن أن ينتهي كمرض.">"What starts as a choice can become an addiction, and what begins as a habit can end as a disease."</p>
+                    </blockquote>
+                </div>
+                <svg class="wave-bottom" viewBox="0 0 400 60" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M0,40 Q100,10 200,35 T400,25 L400,60 L0,60 Z" fill="rgba(91,184,154,0.15)"/>
+                </svg>
+            </div>
+
+            <h2 class="pledge-title reveal-up" data-en="Ready to choose yourself?" data-ar="هل أنت مستعد لاختيار نفسك؟">Ready to choose yourself?</h2>
+            <p class="pledge-desc reveal-up delay-1" data-en="It takes one decision today. Your first step towards a better health & lifestyle." data-ar="قرار واحد اليوم. خطوتك الأولى نحو صحة ونمط حياة أفضل.">It takes one decision today. Your first step towards a better health & lifestyle.</p>
+            <a href="#home" class="cta-btn pledge-cta reveal-up delay-2">
+                <span data-en="Today, I choose myself" data-ar="اليوم، أختار نفسي">Today, I choose myself</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                <span class="cta-glow"></span>
+            </a>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="main-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
+                        <path d="M10 8c-2 0-4 2-4 5v6c0 4 3 7 6 7s6-3 6-7v-6c0-3-2-5-4-5-1.5 0-2.5 1-3 2.5C13.5 9 12.5 8 10 8z" fill="#5bb89a" opacity="0.85"/>
+                        <path d="M22 8c2 0 4 2 4 5v6c0 4-3 7-6 7s-6-3-6-7v-6c0-3 2-5 4-5 1.5 0 2.5 1 3 2.5C18.5 9 19.5 8 22 8z" fill="#e07a5f" opacity="0.9"/>
+                    </svg>
+                </div>
+                <p class="footer-name">Reset Your Breath</p>
+                <p class="footer-name-ar">ابدأ من جديد</p>
+                <p class="footer-tagline" data-en="A small step toward quitting is a step toward a better life." data-ar="خطوة صغيرة نحو الإقلاع هي خطوة نحو حياة أفضل.">A small step toward quitting is a step toward a better life.</p>
+            </div>
+
+            <div class="footer-links">
+                <h3 data-en="Explore" data-ar="استكشف">Explore</h3>
+                <ul>
+                    <li><a href="#home" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                    <li><a href="#types" data-en="Types of Smoking" data-ar="أنواع التدخين">Types of Smoking</a></li>
+                    <li><a href="#damage" data-en="Body Damage" data-ar="الضرر الجسدي">Body Damage</a></li>
+                    <li><a href="#statistics" data-en="Statistics" data-ar="الإحصائيات">Statistics</a></li>
+                    <li><a href="#timeline" data-en="Recovery Timeline" data-ar="جدول التعافي">Recovery Timeline</a></li>
+                    <li><a href="#treatment" data-en="Treatment" data-ar="العلاج">Treatment</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-reminders">
+                <h3 data-en="Key Messages" data-ar="رسائل رئيسية">Key Messages</h3>
+                <ul>
+                    <li data-en="Smoking is the leading preventable cause of death" data-ar="التدخين هو السبب الرئيسي القابل للوقاية للوفاة">Smoking is the leading preventable cause of death</li>
+                    <li data-en="Prognosis improves at any age after quitting" data-ar="التوقعات تتحسن في أي عمر بعد الإقلاع">Prognosis improves at any age after quitting</li>
+                    <li data-en="Combine behavioral support with medication" data-ar="ادمج الدعم السلوكي مع الأدوية">Combine behavioral support with medication</li>
+                    <li data-en="National Quitline: ☎ 16805" data-ar="الخط الساخن: ☎ 16805">National Quitline: ☎ 16805</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© Reset Your Breath — ابدأ من جديد — <span data-en="By Subgroup N1, Medicine Y1, Badya University. Educational health initiative. Not a substitute for professional medical care." data-ar="بواسطة المجموعة الفرعية N1، طب السنة الأولى، جامعة بدية. مبادرة صحية تعليمية. لا تغني عن الرعاية الطبية المتخصصة.">By Subgroup N1, Medicine Y1, Badya University. Educational health initiative. Not a substitute for professional medical care.</span></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
